@@ -17,6 +17,8 @@ $num = count($msg);
         <img src='img/my.gif' />
     </div>
 <h3>你好<?=$_SESSION['user'];  ?></h3>
+
+    <button><a href="../index.php?c=api&a=getdata">查看昨日温州天气</a></button>
     <h2>留言列表：</h2>
     <?php for($i=0;$i<$num;$i++){
     $msg1=new msg();

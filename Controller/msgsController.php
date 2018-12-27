@@ -18,6 +18,11 @@ function msgsModel(){
     $msg=$model->getmsgs();
     return $msg;
 }
+function addmsgModel($img1,$img2,$img3,$userName,$content,$like){
+    require ('Model/addmsgModel.php');
+    $model =new addmsgModel();
+    $model->addmsg($img1,$img2,$img3,$userName,$content,$like);
+}
 class msgsController{
 
     function getmsgs(){
@@ -28,6 +33,21 @@ class msgsController{
         $arrse=serialize($msg);
         $_SESSION['msg']=$arrse;
         header("Location:View/msgs.php");
+    }
+    function addmsgs(){
+        require ('Model/msgModel.php');
+        $arr=$_POST;
+
+        //  其他步骤
+
+        //
+        $img1=$arr['img1'];
+        $img2=$arr['img2'];
+        $img3=$arr['img3'];
+        $userName = $arr['userName'];
+        $content = $arr['content'];
+        $like=0;
+        addmsgModel($img1,$img2,$img3,$userName,$content,$like);
     }
 }
 
