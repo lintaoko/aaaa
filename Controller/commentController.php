@@ -18,6 +18,11 @@ function getCommentModel($id){
     $comment=$model->getComment($id);
     return $comment;
 }
+function addCommentModel($fromId,$content,$userName){
+    require ('Model/addCommentModel.php');
+    $model =new addCommentModel();
+    $model->addComment($fromId,$content,$userName);
+}
 class commentController
 {
     function getComment(){
@@ -29,5 +34,13 @@ class commentController
         $arrse=serialize($comment);
         $_SESSION['comment']=$arrse;
         header("Location:View/comment.php");
+    }
+    function addComment(){
+        require ('Model/commentModel.php');
+        $id=$_POST["id"];
+        $userName=$_POST["userName"];
+        $content=$_POST["content"];
+        addCommentModel($id,$content,$userName);
+        header("Location:index.php?c=comment&a=getComment&id=$id");
     }
 }

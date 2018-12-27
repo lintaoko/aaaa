@@ -27,7 +27,7 @@ class msgsController{
         session_start();
         $arrse=serialize($msg);
         $_SESSION['msg']=$arrse;
-        header("Location:View/msgs.php?");
+        header("Location:View/msgs.php");
     }
 }
 

@@ -14,7 +14,7 @@ class getmsgsModel{
     {
         $link =mysqli_connect("localhost", "root","", "messagesystem");
         $result = mysqli_query($link , "SELECT * FROM msgslist ");
-        $data =array();
+         $data =array();
             while ($rows= mysqli_fetch_array($result)){
 //存储数据到数组
                 $msg =new msg();

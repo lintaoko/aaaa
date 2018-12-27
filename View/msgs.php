@@ -7,6 +7,7 @@ if(!isset($_SESSION['user'])){
 require('../Model/userModel.php');
 require('../Model/msgModel.php');
 $msg=unserialize($_SESSION['msg']);
+var_dump($msg);
 $num = count($msg);
 ?>
 
@@ -28,7 +29,8 @@ $num = count($msg);
             </div>
             <div style='background-color:lightgray;'>留言人：<?=$msg1->userName;  ?></div>
         </div>
-        <a href="">查看评论</a>
+        <?=$msg1->id ?>
+        <a href="../index.php?c=comment&a=getComment&id='<?=$msg1->id?>'">查看评论</a>
         <?php  }?>
 
     </div>
