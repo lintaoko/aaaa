@@ -10,14 +10,16 @@ function connectModel(){
     $model =new connectModel();
     $model->connect();
 }
-function registeModel($userName,$userPass,$userEmail,$userPhone){
+function registeModel($userName,$userPass,$userEmail,$userPhone,$captcha){
     require('Model/registeModel.php');
     $model =new registeModel();
+    $model->captcha($captcha);
     $model->PandEJ($userEmail,$userEmail);
     $model->registe($userName,$userPass,$userEmail,$userPhone);
 }
 class registeController {
     function  registe(){
+        session_start();
         connectModel();
         require('Model/userModel.php');
         $user = new userModel();
@@ -26,6 +28,7 @@ class registeController {
         $user->userPass=$arr['userPass'];
         $user->userEmail=$arr['userEmail'];
         $user->userPhone=$arr['userPhone'];
-        registeModel($user->userName,$user->userPass,$user->userEmail,$user->userPhone);
+        $captcha=$arr['captcha'];
+        registeModel($user->userName,$user->userPass,$user->userEmail,$user->userPhone,$captcha);
     }
 }

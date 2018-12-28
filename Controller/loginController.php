@@ -11,9 +11,10 @@ function connectModel(){
     $model =new connectModel();
     $model->connect();
 }
-function loginModel($userName,$userPass){
+function loginModel($userName,$userPass,$captcha){
     require('Model/loginModel.php');
     $model =new loginModel();
+    $model->captcha($captcha);
     $model->login($userName,$userPass);
 }
 class loginController
@@ -24,10 +25,11 @@ class loginController
             $user = new userModel();
             session_start();
             $arr=$_POST;
+            $captcha = $_POST["captcha"];
             $user->userName=$arr['userName'];
             $user->userPass=$arr['userPass'];
         connectModel();
-        loginModel($user->userName,$user->userPass);
+        loginModel($user->userName,$user->userPass,$captcha);
     }
 
 }

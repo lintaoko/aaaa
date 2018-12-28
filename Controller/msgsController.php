@@ -18,6 +18,12 @@ function msgsModel(){
     $msg=$model->getmsgs();
     return $msg;
 }
+function mymsg($userName){
+    require('Model/getmsgsModel.php');
+    $model=new getmsgsModel();
+    $mymsg=$model->mymsg($userName);
+    return $mymsg;
+}
 function addmsgModel($img1,$img2,$img3,$userName,$content,$like){
     require ('Model/addmsgModel.php');
     $model =new addmsgModel();
@@ -48,6 +54,15 @@ class msgsController{
         $content = $arr['content'];
         $like=0;
         addmsgModel($img1,$img2,$img3,$userName,$content,$like);
+    }
+    function mymsg(){
+        require('Model/msgModel.php');
+        connectModel();
+        $mymsg=msgsModel($_SESSION['user']);
+        session_start();
+        $arrse=serialize($mymsg);
+        $_SESSION['mymsg']=$arrse;
+        header("Location:View/mymsg.php");
     }
 }
 
