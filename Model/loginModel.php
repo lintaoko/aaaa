@@ -11,10 +11,9 @@ class loginModel
 
     public  function captcha($captcha){
     if(strtolower($_SESSION["captcha"]) == strtolower($captcha)){
-        echo "验证码正确!";
         $_SESSION["captcha"] = "";
     }else{
-        echo "验证码提交不正确!";
+        echo "<script>alert('验证码错误')</script>";
         exit();
     }
 }
@@ -25,13 +24,13 @@ class loginModel
         $result = mysqli_query($link , "SELECT * FROM User where userName='$userName' and userPass='$userPass'");
         if (mysqli_fetch_assoc($result))
         {
-            echo'登陆成功';
+            echo "<script>alert('登陆成功')</script>";
             $_SESSION['user']=$userName;
-            header("Location:index.php?c=msgs&a=getmsgs");
+            header("Refresh:1;url=index.php?c=msgs&a=getmsgs");
 
         }else{
-            echo'登陆失败';
-            header("Location:View/login.php");
+            echo "<script>alert('用户名或密码不符')</script>";
+            header("Refresh:1;url=View/login.php");
         }
     }
 }

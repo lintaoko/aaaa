@@ -14,7 +14,7 @@ function registeModel($userName,$userPass,$userEmail,$userPhone,$captcha){
     require('Model/registeModel.php');
     $model =new registeModel();
     $model->captcha($captcha);
-    $model->PandEJ($userEmail,$userEmail);
+    $model->PandEJ($userEmail,$userPhone);
     $model->registe($userName,$userPass,$userEmail,$userPhone);
 }
 class registeController {

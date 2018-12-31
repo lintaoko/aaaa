@@ -33,7 +33,7 @@ class commentController
         session_start();
         $arrse=serialize($comment);
         $_SESSION['comment']=$arrse;
-        header("Location:View/comment.php");
+        header("Refresh:0.1;url=View/comment.php");
     }
     function addComment(){
         require ('Model/commentModel.php');
@@ -41,6 +41,6 @@ class commentController
         $userName=$_POST["userName"];
         $content=$_POST["content"];
         addCommentModel($id,$content,$userName);
-        header("Location:index.php?c=comment&a=getComment&id=$id");
+        header("Refresh:0.1;url=index.php?c=comment&a=getComment&id=$id");
     }
 }

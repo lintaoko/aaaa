@@ -31,5 +31,10 @@ class loginController
         connectModel();
         loginModel($user->userName,$user->userPass,$captcha);
     }
+    public  function  cancel(){
+        session_start();
+        session_destroy();
+        header("Location:View/login.php");
+    }
 
 }

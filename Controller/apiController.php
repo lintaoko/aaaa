@@ -19,12 +19,15 @@ class apiController {
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
         $output = curl_exec($ch);
         curl_close($ch);
-        print_r($output);
-        var_dump($output);
         $data = json_decode($output, true);
-        echo "白天的天气为".$data["result"]["day_weather"];
-        echo '<br>';
-        echo "夜晚的天气为".$date["result"]["night_weather"];
+        $a= "白天的天气为".$data["result"]["day_weather"];
+        $b= "夜晚的天气为".$data["result"]["night_weather"];
+        echo "<script>alert('$a')</script>";
+        echo "<script>alert('$b')</script>";
+        header("Refresh:0.1;url=View/msgs.php");
+
+
+
 
     }
 }

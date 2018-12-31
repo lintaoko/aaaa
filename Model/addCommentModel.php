@@ -10,6 +10,10 @@ class addCommentModel
 {
     function addComment($fromId,$content,$userName){
         $link =mysqli_connect("localhost", "root","", "messagesystem");
-        $result = mysqli_query($link , "insert into commentlist values('$fromId','$content','$userName')");
+        if (mysqli_query($link , "insert into commentlist values('$fromId','$content','$userName')")){             echo "<script>alert('分享成功')</script>";
+        echo "<script>alert('评论成功')</script>";
+        }else{
+            echo "<script>alert('评论失败')</script>";
+        }
     }
 }

@@ -31,7 +31,7 @@ class getmsgsModel{
     public function mymsg($userName)
     {
         $link =mysqli_connect("localhost", "root","", "messagesystem");
-        $result = mysqli_query($link , "SELECT * FROM msgslist where userName=$userName ");
+        $result = mysqli_query($link , "SELECT * FROM msgslist where userName='$userName' ");
         $data =array();
         while ($rows= mysqli_fetch_array($result)){
 //存储数据到数组
