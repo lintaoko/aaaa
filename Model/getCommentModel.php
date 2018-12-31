@@ -9,7 +9,7 @@
 class getCommentModel
 {
     function getComment($id){
-        $link =mysqli_connect("localhost", "root","", "messagesystem");
+        $link =mysqli_connect("66.42.41.221", "root","zx123456", "messagesystem");
         $result = mysqli_query($link , "SELECT * FROM commentlist where fromid=$id ");
         $data =array();
         while ($rows= mysqli_fetch_array($result)){

@@ -33,7 +33,7 @@ class commentController
         session_start();
         $arrse=serialize($comment);
         $_SESSION['comment']=$arrse;
-        header("Refresh:0.1;url=View/comment.php");
+        header("Refresh:0.1;url=View/comment.php?id=$id");
     }
     function addComment(){
         require ('Model/commentModel.php');

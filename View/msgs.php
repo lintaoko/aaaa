@@ -35,7 +35,7 @@ $num = count($msg);
             留言内容：<?php echo $msg1->content ?>
             </div>
             <div style='background-color:lightgray;'>留言人：<?=$msg1->userName;  ?></div>
-<button><a href="../index.php?c=comment&a=getComment&id='<?=$msg1->id?>'">查看评论</a></button>
+<button><a href="../index.php?c=comment&a=getComment&id=<?=$msg1->id?>">查看评论</a></button>
 
         </div>
         <?php  }?>

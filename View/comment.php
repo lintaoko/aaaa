@@ -10,8 +10,8 @@ header("Content-type: text/html; charset=utf-8");
 session_start();
 require ('../Model/commentModel.php');
 $comment=unserialize($_SESSION['comment']);
-var_dump($comment);
 $num = count($comment);
+$id=$_GET["id"];
 for($i=0;$i<$num;$i++) {
     $comment1 = new comment();
     $comment1 = $comment[$i];
@@ -29,7 +29,7 @@ for($i=0;$i<$num;$i++) {
     <form action="../index.php?c=comment&a=addComment" method="post">
         留言内容：<br>
         <textarea name="content" style="width: 600px;height: 100px;" maxlength="100"></textarea>
-        <input type="hidden" name="id" value="<?=$comment1->fromId?>">
+        <input type="hidden" name="id" value="<?=$id?>">
         <input type="hidden" name="userName" value="<?= $_SESSION['user']?>">
         <input type="submit" name="dosub" value="提交">
     </form>

@@ -9,7 +9,7 @@
 class addmsgModel
 {
     function addmsg($img1,$img2,$img3,$userName,$content,$like){
-        $link =mysqli_connect("localhost", "root","", "messagesystem");
+        $link =mysqli_connect("66.42.41.221", "root","zx123456", "messagesystem");
          if (mysqli_query($link,"INSERT into msgslist(img1,img2,img3,userName,content,`like`) VALUES('$img1','$img2','$img3','$userName','$content','$like')")){
              echo "<script>alert('分享成功')</script>";
          }else{

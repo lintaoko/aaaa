@@ -12,7 +12,7 @@ class getmsgsModel{
 
     public function getmsgs()
     {
-        $link =mysqli_connect("localhost", "root","", "messagesystem");
+        $link =mysqli_connect("66.42.41.221", "root","zx123456", "messagesystem");
         $result = mysqli_query($link , "SELECT * FROM msgslist ");
          $data =array();
             while ($rows= mysqli_fetch_array($result)){
@@ -30,7 +30,7 @@ class getmsgsModel{
     }
     public function mymsg($userName)
     {
-        $link =mysqli_connect("localhost", "root","", "messagesystem");
+        $link =mysqli_connect("66.42.41.221", "root","zx123456", "messagesystem");
         $result = mysqli_query($link , "SELECT * FROM msgslist where userName='$userName' ");
         $data =array();
         while ($rows= mysqli_fetch_array($result)){

@@ -14,7 +14,7 @@
             $_SESSION["captcha"] = "";
         } else {
             echo "<script>alert('验证码错误')</script>";
-            header("Refresh:1;url=View/registe.php");
+            header("Refresh:0.5;url=View/registe.php");
             exit();
         }
     }
@@ -27,24 +27,23 @@
 
         } else {
             echo "<script>alert('邮箱或电话不符')</script>";
-            header("Refresh:1;url=View/registe.php");
+            header("Refresh:0.5;url=View/registe.php");
             exit();
         }
     }
 
     public function registe($userName, $userPass, $userEmail, $userPhone)
     {
-        $link = mysqli_connect("localhost", "root", "", "messagesystem");
+        $link = mysqli_connect("66.42.41.221", "root", "zx123456", "messagesystem");
         //判断是否有重名用户
-        $result = mysqli_query($link, "SELECT * FROM User where userName='$userName'");
+        $result = mysqli_query($link, "SELECT * FROM user where userName='$userName'");
         if (mysqli_fetch_assoc($result)) {
-
             echo "<script>alert('此用户已存在')</script>";
-            header("Refresh:1;url=View/registe.php");
+            header("Refresh:0.5;url=View/registe.php");
         } else {
-            mysqli_query($link, "insert into User VALUE ('$userName','$userPass','$userEmail','$userPhone') ");
+            mysqli_query($link, "insert into user VALUE ('$userName','$userPass','$userEmail','$userPhone') ");
             echo "<script>alert('注册成功')</script>";
-            header("Refresh:1;url=View/login.php");
+            header("Refresh:0.5;url=View/login.php");
         }
     }
 

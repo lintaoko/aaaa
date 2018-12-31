@@ -14,14 +14,15 @@ class loginModel
         $_SESSION["captcha"] = "";
     }else{
         echo "<script>alert('验证码错误')</script>";
+        header("Refresh:0.5;url=View/login.php");
         exit();
     }
 }
     public function login($userName,$userPass)
     {
 
-        $link =mysqli_connect("localhost", "root","", "messagesystem");
-        $result = mysqli_query($link , "SELECT * FROM User where userName='$userName' and userPass='$userPass'");
+        $link =mysqli_connect("66.42.41.221", "root","zx123456", "messagesystem");
+        $result = mysqli_query($link , "SELECT * FROM user where userName='$userName' and userPass='$userPass'");
         if (mysqli_fetch_assoc($result))
         {
             echo "<script>alert('登陆成功')</script>";

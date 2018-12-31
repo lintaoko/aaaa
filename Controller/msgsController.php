@@ -43,7 +43,7 @@ class msgsController{
         session_start();
         $arrse=serialize($msg);
         $_SESSION['msg']=$arrse;
-        header("Refresh:1;url=View/msgs.php");
+        header("Refresh:0.5;url=View/msgs.php");
     }
     function addmsgs(){
         require_once('Model/msgModel.php');
@@ -61,8 +61,7 @@ class msgsController{
         $content = $arr['content'];
         $like="0";
         addmsgModel($img1,$img2,$img3,$userName,$content,$like);
-        header("Refresh:1;url=index.php?c=msgs&a=getmsgs");
-
+        header("Refresh:0.5;url=index.php?c=msgs&a=getmsgs");
     }
     function mymsg(){
         require('Model/msgModel.php');
@@ -71,7 +70,7 @@ class msgsController{
         $mymsg=mymsg($_SESSION['user']);
         $arrse=serialize($mymsg);
         $_SESSION['mymsg']=$arrse;
-        header("Refresh:1;url=View/mymsg.php");
+        header("Refresh:0.5;url=View/mymsg.php");
     }
 }
 

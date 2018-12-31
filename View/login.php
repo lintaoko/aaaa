@@ -10,5 +10,5 @@
             <input type="submit" name="dosub" value="提交" >
         </form>
 
-    <button><a href="registe.php" onclick="this.src='image_captcha.php?'+new Date().getTime();" width="200" height="200">注册</a></button>
+    <button><a href="../View/registe.php" onclick="this.src='image_captcha.php?'+new Date().getTime();" width="200" height="200">注册</a></button>
     </div>
